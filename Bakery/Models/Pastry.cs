@@ -6,11 +6,12 @@ namespace Bakery.Models
   {
     public int PastryCount {get; set;}
     public string PastryType {get; set;}
-
+    private static List<Pastry> _instances = new List<Pastry>{};
     public Pastry(int pastryCount, string pastryType)
     {
       PastryCount = pastryCount;
       PastryType = pastryType;
+      _instances.Add(this);
     }
     public static int GetPastryPrice(int pastryCount)
     {
@@ -33,6 +34,15 @@ namespace Bakery.Models
         }
       }
       return pastryPrice;
+    }
+
+    public static List<Pastry> GetAllPastries()
+    {
+      return _instances;
+    }
+    public static void ClearAll()
+    {
+      _instances.Clear();
     }
   }
 }
