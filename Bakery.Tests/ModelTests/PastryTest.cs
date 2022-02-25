@@ -36,5 +36,23 @@ namespace Bakery.Tests
       Assert.AreEqual(pastryPrice, 5);
       Assert.AreEqual(multiplePastryPrice, 9);
     }
+
+    [TestMethod]
+    public void GetPastryType_ReturnPastryType_String()
+    {
+      Pastry newPastry = new Pastry(1, "Croissant");
+      string pastryStyle = newPastry.PastryType;
+      Assert.AreEqual(pastryStyle, "Croissant");
+    }
+    // [TestMethod]
+    // public void GetAllPastries_ReturnsEmptyPastryList_PastryList()
+    // {
+    //   List<Pastry> newList = new List<Pastry>{};
+    //   List<Pastry> result = Pastry.GetAllPastries();
+    //   foreach(Pastry thisPastry in result)
+    //   {
+    //     Console.WriteLine("Output from empty list GetAllPastries test: "+ thisPastry.PastryType)
+    //   }
+    // }
   }
 }
