@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Bakery.Models;
 
@@ -6,8 +7,12 @@ namespace Bakery.Tests
 {
   [TestClass]
 
-  public class BreadTests
+  public class BreadTests : IDisposable
   {
+    public void Dispose()
+    {
+      Bread.ClearAll();
+    }
     [TestMethod]
     public void BreadConstructor_CreatesInstanceOfBread_Bread()
     {
@@ -49,6 +54,7 @@ namespace Bakery.Tests
       {
         Console.WriteLine("Output from empty list GetAllBread test: " + thisBread.BreadType);
       }
+      CollectionAssert.AreEqual(newList, result);
     }
   }
 }
