@@ -9,6 +9,7 @@ namespace Bakery.Tests
 
   public class PastryTests
   {
+
     [TestMethod]
     public void PastryConstructor_CreatesInstanceOfPastry_Pastry()
     {
@@ -26,9 +27,14 @@ namespace Bakery.Tests
     [TestMethod]
     public void GetPastryPrice_ReturnPriceOfPastries_Int()
     {
-      Pastry newPastry = new Pastry(1);
-      int pastryPrice = newPastry.GetPrice();
-      Assert.AreEqual(pastryPrice, 2);
+      Pastry newPastry = new Pastry(3);
+      Pastry multiplePastries = new Pastry(5);
+      int newPastryNumber = newPastry.PastryCount;
+      int multiplePastryNumber = multiplePastries.PastryCount;
+      int pastryPrice = Pastry.GetPrice(newPastryNumber);
+      int multiplePastryPrice = Pastry.GetPrice(multiplePastryNumber);
+      Assert.AreEqual(pastryPrice, 5);
+      Assert.AreEqual(multiplePastryPrice, 9);
     }
   }
 }
