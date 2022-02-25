@@ -15,12 +15,9 @@ namespace Bakery.Tests
       Pastry newPastry = new Pastry();
       Assert.AreEqual(typeof(Pastry), newPastry.GetType());
     }
-    public void GetCost_GetCostOfSinglePastry_Int()
-    {
-      Pastry newPastry = new Pastry();
-      int price = newPastry.GetCost;
-      Assert.AreEqual(price, 2);
-    }
+    // [TestMethod]
+    // {
 
+    // }
   }
 }
