@@ -7,17 +7,20 @@ namespace Bakery.Tests
 {
   [TestClass]
 
-  public class Pastry
+  public class PastryTests
   {
     [TestMethod]
     public void PastryConstructor_CreatesInstanceOfPastry_Pastry()
     {
-      Pastry newPastry = new Pastry();
+      Pastry newPastry = new Pastry(1);
       Assert.AreEqual(typeof(Pastry), newPastry.GetType());
     }
-    // [TestMethod]
-    // {
-
-    // }
+    [TestMethod]
+    public void GetPastryCount_ReturnCountOfPastries_Int()
+    {
+      Pastry newPastry = new Pastry(1);
+      int pastryNumber = newPastry.PastryCount;
+      Assert.AreEqual(pastryNumber,1);
+    }
   }
 }

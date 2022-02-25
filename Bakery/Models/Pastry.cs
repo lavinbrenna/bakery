@@ -1,3 +1,4 @@
+using System;
 namespace Bakery.Models
 {
   public class Pastry
@@ -8,7 +9,6 @@ namespace Bakery.Models
     {
       PastryCount = pastryCount;
     }
+
   }
-
-
 }
