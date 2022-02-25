@@ -56,5 +56,24 @@ namespace Bakery.Tests
       }
       CollectionAssert.AreEqual(newList, result);
     }
+    [TestMethod]
+    public void GetAllBread_ReturnsBreadLoaves_BreadList()
+    {
+      string breadStyle1 = "Brioche";
+      int loafCount1 = 1;
+      string breadStyle2 = "Challah";
+      int loafCount2 = 2;
+      Bread newBread1 = new Bread(loafCount1, breadStyle1);
+      Bread newBread2 = new Bread(loafCount2, breadStyle2);
+      List<Bread> newList = new List<Bread>{
+        newBread1, newBread2
+      };
+      List<Bread> result = Bread.GetAllBread();
+      foreach( Bread thisBread in result)
+      {
+        Console.WriteLine("Output from second GetAllBread test: " + thisBread.BreadType);
+      }
+      CollectionAssert.AreEqual(newList, result);
+    }
   }
 }
