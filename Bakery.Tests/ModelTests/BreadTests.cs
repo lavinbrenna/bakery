@@ -24,10 +24,14 @@ namespace Bakery.Tests
     [TestMethod]
     public void GetLoafPrice_ReturnPriceOfLoaves_Int()
     {
-      Bread newBread = newBread(1);
+      Bread newBread = new Bread(1);
+      Bread multipleLoaves = new Bread(6);
       int loafNumber = newBread.LoafCount;
-      int breadPrice = Bread.GetLoafPrice(breadPrice);
+      int loavesNumber = multipleLoaves.LoafCount;
+      int breadPrice = Bread.GetLoafPrice(loafNumber);
+      int loavesPrice = Bread.GetLoafPrice(loavesNumber);
       Assert.AreEqual(breadPrice, 5);
+      Assert.AreEqual(loavesPrice, 20);
     }
   }
 }
