@@ -33,11 +33,22 @@ namespace Bakery.Tests
       Assert.AreEqual(breadPrice, 5);
       Assert.AreEqual(loavesPrice, 20);
     }
+    [TestMethod]
     public void GetBreadType_ReturnBreadType_String()
     {
       Bread newBread = new Bread(1, "Shokupan");
       string breadStyle = newBread.BreadType;
       Assert.AreEqual(breadStyle, "Shokupan");
+    }
+    [TestMethod]
+    public void GetAllBread_ReturnsEmptyBreadList_BreadList()
+    {
+      List<Bread> newList = new List<Bread> {};
+      List<Bread> result = Bread.GetAllBread();
+      foreach(Bread thisBread in result)
+      {
+        Console.WriteLine("Output from empty list GetAllBread test: " + thisBread.BreadType);
+      }
     }
   }
 }

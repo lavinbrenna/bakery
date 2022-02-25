@@ -6,8 +6,8 @@ namespace Bakery.Models
   {
     public static void Main()
     {
-      bool orderStatus = true;
-      Console.WriteLine("Welcome to Pierre's Bakery!");
+      // bool orderStatus = true;
+      // Console.WriteLine("Welcome to Pierre's Bakery!");
     }
   }
 }
