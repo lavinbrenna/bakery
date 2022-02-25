@@ -10,7 +10,7 @@ namespace Bakery.Models
     {
       PastryCount = pastryCount;
     }
-    public static int GetPrice(int pastryCount)
+    public static int GetPastryPrice(int pastryCount)
     {
       int pastryPrice = 0;
       List<int> pastryList = new List<int>{};

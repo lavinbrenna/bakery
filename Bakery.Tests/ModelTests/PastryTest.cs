@@ -1,7 +1,7 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Bakery.Models;
-using System.Collections.Generic;
+
 
 namespace Bakery.Tests
 {
@@ -31,8 +31,8 @@ namespace Bakery.Tests
       Pastry multiplePastries = new Pastry(5);
       int newPastryNumber = newPastry.PastryCount;
       int multiplePastryNumber = multiplePastries.PastryCount;
-      int pastryPrice = Pastry.GetPrice(newPastryNumber);
-      int multiplePastryPrice = Pastry.GetPrice(multiplePastryNumber);
+      int pastryPrice = Pastry.GetPastryPrice(newPastryNumber);
+      int multiplePastryPrice = Pastry.GetPastryPrice(multiplePastryNumber);
       Assert.AreEqual(pastryPrice, 5);
       Assert.AreEqual(multiplePastryPrice, 9);
     }
