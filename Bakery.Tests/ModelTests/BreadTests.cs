@@ -21,5 +21,13 @@ namespace Bakery.Tests
       int loafNumber = newBread.LoafCount;
       Assert.AreEqual(loafNumber, 1);
     }
+    [TestMethod]
+    public void GetLoafPrice_ReturnPriceOfLoaves_Int()
+    {
+      Bread newBread = newBread(1);
+      int loafNumber = newBread.LoafCount;
+      int breadPrice = Bread.GetLoafPrice(breadPrice);
+      Assert.AreEqual(breadPrice, 5);
+    }
   }
 }
