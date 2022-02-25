@@ -5,10 +5,12 @@ namespace Bakery.Models
   public class Bread
   {
     public int LoafCount {get; set;}
+    public string BreadType {get; set;}
 
-    public Bread(int loafCount)
+    public Bread(int loafCount, string breadType)
     {
       LoafCount = loafCount;
+      BreadType = breadType;
     }
     public static int GetLoafPrice(int loafCount)
     {
