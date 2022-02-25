@@ -13,13 +13,13 @@ namespace Bakery.Tests
     [TestMethod]
     public void PastryConstructor_CreatesInstanceOfPastry_Pastry()
     {
-      Pastry newPastry = new Pastry(1);
+      Pastry newPastry = new Pastry(1, "Croissant");
       Assert.AreEqual(typeof(Pastry), newPastry.GetType());
     }
     [TestMethod]
     public void GetPastryCount_ReturnCountOfPastries_Int()
     {
-      Pastry newPastry = new Pastry(1);
+      Pastry newPastry = new Pastry(1, "Croissant");
       int pastryNumber = newPastry.PastryCount;
       Assert.AreEqual(pastryNumber,1);
     }
@@ -27,8 +27,8 @@ namespace Bakery.Tests
     [TestMethod]
     public void GetPastryPrice_ReturnPriceOfPastries_Int()
     {
-      Pastry newPastry = new Pastry(3);
-      Pastry multiplePastries = new Pastry(5);
+      Pastry newPastry = new Pastry(3, "Croissant");
+      Pastry multiplePastries = new Pastry(5, "Cronut");
       int newPastryNumber = newPastry.PastryCount;
       int multiplePastryNumber = multiplePastries.PastryCount;
       int pastryPrice = Pastry.GetPastryPrice(newPastryNumber);
@@ -44,15 +44,16 @@ namespace Bakery.Tests
       string pastryStyle = newPastry.PastryType;
       Assert.AreEqual(pastryStyle, "Croissant");
     }
-    // [TestMethod]
-    // public void GetAllPastries_ReturnsEmptyPastryList_PastryList()
-    // {
-    //   List<Pastry> newList = new List<Pastry>{};
-    //   List<Pastry> result = Pastry.GetAllPastries();
-    //   foreach(Pastry thisPastry in result)
-    //   {
-    //     Console.WriteLine("Output from empty list GetAllPastries test: "+ thisPastry.PastryType)
-    //   }
-    // }
+    [TestMethod]
+    public void GetAllPastries_ReturnsEmptyPastryList_PastryList()
+    {
+      List<Pastry> newList = new List<Pastry>{};
+      List<Pastry> result = Pastry.GetAllPastries();
+      foreach(Pastry thisPastry in result)
+      {
+        Console.WriteLine("Output from empty list GetAllPastries test: "+ thisPastry.PastryType);
+      }
+      CollectionAssert.AreEqual(newList, result);
+    }
   }
 }
