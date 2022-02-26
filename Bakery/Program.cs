@@ -19,16 +19,16 @@ namespace Bakery.Models
       string pastryTypes = "Croissant, Chocolate Croissant, Marionberry Cream Cheese Brioche, Bear Claw, Cannoli, Vanilla Cornet";
       Console.WriteLine("Welcome to Pierre's Bakery!");
       Console.WriteLine("We sell many kinds of breads and pastries.");
-      Console.WriteLine("Bread is normally priced at $"+ welcomeBreadPrice + " per loaf and pastries are $"+ welcomePastryPrice+ "per pastry.");
+      Console.WriteLine("Bread is normally priced at $" + welcomeBreadPrice + " per loaf and pastries are $" + welcomePastryPrice + " per pastry.");
       Bread.ClearAll();
       Pastry.ClearAll();
       Console.WriteLine("Today our specials are 3 pastries for $5 or buy 2 get 1 for loaves of bread");
-      Console.WriteLine("Would you like to order bread or pastries? (bread/pastries)");
-      string orderType = Console.ReadLine().ToLower();
-      if(orderType == "bread")
+      Console.WriteLine("Would you like to order any bread? (yes/no)");
+      string breadResponse = Console.ReadLine().ToLower();
+      if (breadResponse == "yes")
       {
         breadOrder = true;
-        while(breadOrder == true)
+        while (breadOrder == true)
         {
           int customerLoafCount = 0;
           Console.WriteLine("Please choose one from the following options: ");
@@ -39,60 +39,69 @@ namespace Bakery.Models
           Bread customerBread = new Bread(customerLoafCount, customerBreadType);
           breadTotal += Bread.GetLoafPrice(customerLoafCount);
           Console.WriteLine("Would you like to add any more bread to your order?(yes/no)");
-          string breadResponse = Console.ReadLine().ToLower();
-          if(breadResponse == "yes")
+          string breadResponse2 = Console.ReadLine().ToLower();
+          if (breadResponse2 == "yes")
           {
             breadOrder = true;
           }
           else
           {
             breadOrder = false;
-            List<Bread> result = Bread.GetAllBread();
-            foreach(Bread thisBread in result)
+            List<Bread> breadResult = Bread.GetAllBread();
+            Console.WriteLine("You have ordered: ");
+            foreach (Bread thisBread in breadResult)
             {
-              Console.WriteLine(thisBread.BreadType);
+              Console.WriteLine(thisBread.LoafCount + " loaf/loaves of :" + thisBread.BreadType);
             }
-              Console.WriteLine("Your bread total is $" + breadTotal);
-              break;
+            Console.WriteLine("Your final total is $" + breadTotal);
+            Console.WriteLine("Thank you for shopping with us, have a nice day!");
+            }
           }
-        }
       }
-      else if(orderType == "pastries")
+      else if (breadResponse == "no")
       {
-        pastryOrder = true;
-        while(pastryOrder == true)
+        Console.WriteLine("Would you like to order any pastries?(yes/no)");
+        string pastryResponse = Console.ReadLine().ToLower();
+        if (pastryResponse == "yes")
         {
-          int customerPastryCount = 0;
-          Console.WriteLine("Please choose from one of the following options: ");
-          Console.WriteLine(pastryTypes);
-          string customerPastryType = Console.ReadLine().ToLower();
-          Console.WriteLine("How many pastries of this kind would you like to order?");
-          customerPastryCount += int.Parse(Console.ReadLine());
-          Pastry customerPastry = new Pastry(customerPastryCount, customerPastryType);
-          pastryTotal += Pastry.GetPastryPrice(customerPastryCount);
-          Console.WriteLine("Would you like to add any more pastries to your order?(yes/no)");
-          string pastryResponse = Console.ReadLine().ToLower();
-          if(pastryResponse == "yes"){
-            pastryOrder = true;
-          }
-          else{
-            pastryOrder = false;
-            List<Pastry> result = Pastry.GetAllPastries();
-            foreach(Pastry thisPastry in result)
+          pastryOrder = true;
+          while (pastryOrder == true)
+          {
+            int customerPastryCount = 0;
+            Console.WriteLine("Please choose from one of the following options: ");
+            Console.WriteLine(pastryTypes);
+            string customerPastryType = Console.ReadLine().ToLower();
+            Console.WriteLine("How many pastries of this kind would you like to order?");
+            customerPastryCount += int.Parse(Console.ReadLine());
+            Pastry customerPastry = new Pastry(customerPastryCount, customerPastryType);
+            pastryTotal += Pastry.GetPastryPrice(customerPastryCount);
+            Console.WriteLine("Would you like to add any more pastries to your order?(yes/no)");
+            string pastryResponse2 = Console.ReadLine().ToLower();
+            if (pastryResponse2 == "yes")
             {
-              Console.WriteLine(thisPastry.PastryType);
+              pastryOrder = true;
             }
-            Console.WriteLine("Your pastry total is $" + pastryTotal);
-            break;
+            else
+            {
+              pastryOrder = false;
+              List<Pastry> pastryResult = Pastry.GetAllPastries();
+              Console.WriteLine("You have ordered: ");
+              foreach (Pastry thisPastry in pastryResult)
+              {
+                Console.WriteLine(thisPastry.PastryCount + ": " + thisPastry.PastryType + "(s)");
+              }
+              Console.WriteLine("Your final total is $" + pastryTotal);
+              Console.WriteLine("Thank you for shopping with us, have a nice day!");
+            }
           }
         }
+        else
+        {
+          Console.WriteLine("Thank you for stopping by! Have a good day!");
+        }
       }
-      else
-      {
-        Console.WriteLine("I'm sorry, please enter a valid response");
-      }
-      Console.WriteLine("Your final order total is: $" + breadTotal + pastryTotal);
-      Console.WriteLine("Thank you for ordering with us! Have a nice day!");
     }
   }
 }
+
+
