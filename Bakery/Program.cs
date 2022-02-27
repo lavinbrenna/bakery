@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Generic;
+
 
 namespace Bakery.Models
 {
@@ -20,10 +20,7 @@ namespace Bakery.Models
       Console.WriteLine("Welcome to Pierre's Bakery!");
       Console.WriteLine("We sell many kinds of breads and pastries.");
       Console.WriteLine("Bread is normally priced at $" + welcomeBreadPrice + " per loaf and pastries are $" + welcomePastryPrice + " per pastry.");
-
       Console.WriteLine("Today our specials are 3 pastries for $5 or buy 2 get 1 for loaves of bread");
-      Bread.ClearAll();
-      Pastry.ClearAll();
 
       Console.WriteLine("What kind of bread would you like to order?");
       Console.WriteLine("Please choose one from the following options: ");
@@ -45,18 +42,11 @@ namespace Bakery.Models
       Pastry customerPastry = new Pastry(customerPastryCount, customerPastryType);
       pastryTotal += Pastry.GetPastryPrice(customerPastryCount);
 
-      List<Bread> breadResult = Bread.GetAllBread();
       Console.WriteLine("You have ordered: ");
       Console.WriteLine("<------------------------------------------------>");
-      foreach (Bread thisBread in breadResult)
-      {
-        Console.WriteLine(thisBread.LoafCount + " loaf/loaves of " + thisBread.BreadType);
-      }
-      List<Pastry> pastryResult = Pastry.GetAllPastries();
-      foreach (Pastry thisPastry in pastryResult)
-      {
-        Console.WriteLine(thisPastry.PastryCount + " " + thisPastry.PastryType + "(s)");
-      }
+      Console.WriteLine(customerBread.LoafCount + " loaf/loaves of " + customerBread.BreadType);
+      Console.WriteLine(customerPastry.PastryCount + " " + customerPastry.PastryType + "(s)");
+
       breadTotal += pastryTotal;
       Console.WriteLine("<------------------------------------------------>");
       Console.WriteLine("Your final total is $" + breadTotal + ".00");
