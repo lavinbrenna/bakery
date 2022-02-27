@@ -16,16 +16,17 @@ _This app is for practicing C# based testing, and is an exercise in C# fundament
 ## Setup/Installation Requirements
 
 * Clone this repository to your local machine
-* While in the root directory, type ```cd Bakery.Tests``` in your command line to Navigate to the Bakery.Tests folder using your terminal.
-* To install the project's dependencies, in the terminal type ```dotnet restore```
-* Once dependencies are installed, type ```dotnet test``` in the terminal to run the project's tests.
+* While in the root directory, type ```cd Bakery.Tests``` in your command line to Navigate to the Bakery.Tests folder.
+* To install the project's dependencies, in the command line type ```dotnet restore```
+* Once dependencies are installed, type ```dotnet test``` in the command line to run the project's tests.
 * After testing is finished, type ```cd ..``` in the command line to return to the folder's root directory
 * To run the application navigate to the Bakery folder by typing ```cd Bakery```.
-* Once in the Bakery folder, type ```dotnet run``` to run the program.
+* Once in the Bakery folder, type ```dotnet run``` in the command line to run the program.
 
 ## Known Bugs
 
-* _No known bugs_
+* _No known bugs, but user is currently only able to make one order for bread and pastries._
+* _There are currently unused methods which were originally in place so that the user could make multiple orders, but that option has since been taken out of the program code, but the method has been left in case of later re-working_
 
 ## License
 
